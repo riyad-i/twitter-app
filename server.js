@@ -8,6 +8,7 @@ const Tweet = require('./models/Tweet')
 const app = express()
 const PORT = 3000
 
+const manyTweets = require('./models/manytweets')
 
 //middleware
 app.use(express.urlencoded({extended: false}))
@@ -33,6 +34,13 @@ app.post('/tweets', async (req, res) => {
     const createdTweet = await Tweet.create(req.body)
     console.log(createdTweet);
     res.send(createdTweet)
+})
+
+
+
+app.get('/tweets/seed', async (req, res) => {
+    const createdTweets = await Tweet.insertMany(manyTweets)
+    res.send(createdTweets)
 })
 
 
