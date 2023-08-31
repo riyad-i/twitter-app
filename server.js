@@ -72,9 +72,19 @@ app.put('/tweets/:id', async (req, res) => {
 
 
 
+//add comment
 
-
-
+app.put('/tweets/add-comment/:id', async (req, res) => {
+    const {id} = req.params
+    try {
+        const tweetToAddComment = await Tweet.findById(id)
+        tweetToAddComment.comments.push(req.body)
+        const updatedTweet = await Tweet.findByIdAndUpdate(id, tweetToAddComment, {new: true})
+        res.send(updatedTweet)
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 
 
