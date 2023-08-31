@@ -19,7 +19,9 @@ app.get('/', (req, res) => {
     res.send('Working!')
 })
 
+// ====================== View Routes
 
+//index
 app.get('/tweets', async (req, res)=> {
     try {
         const tweets = await Tweet.find({})
@@ -30,11 +32,31 @@ app.get('/tweets', async (req, res)=> {
 })
 
 
+
+
+//create post
 app.post('/tweets', async (req, res) => {
     const createdTweet = await Tweet.create(req.body)
     console.log(createdTweet);
     res.send(createdTweet)
 })
+
+
+
+
+
+//show
+app.get('/tweets/:id', async (req, res) => {
+    const {id} = req.params
+    try {
+        const tweet = await Tweet.findById(id)
+        res.send(tweet)
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+
 
 
 
