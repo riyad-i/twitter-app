@@ -58,6 +58,47 @@ app.post('/tweets', async (req, res) => {
 })    
 
 
+//update
+app.put('/tweets/:id', async (req, res) => {
+    const {id} = req.params
+    try {
+        // const tweetToUpdate = await Tweet.findById(id)
+        const updatedTweet = await Tweet.findByIdAndUpdate(id, req.body, {new: true})
+        res.send(updatedTweet)
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+//increase likes
+app.get('/api/tweets/add-like/:id', async (req, res) => {
+    const {id} = req.params
+    try {
+        const tweetToUpdate = await Tweet.findById(id)
+        tweetToUpdate.likes++
+        const updatedTweet = await Tweet.findByIdAndUpdate(id, tweetToUpdate, {new: true})
+        res.send(updatedTweet)
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+
+
+
+
+//delete
 app.delete('/tweets/:id', async (req, res) => {
     const {id} = req.params
     try {
