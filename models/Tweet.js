@@ -1,5 +1,11 @@
 const mongoose = require('mongoose')
 
+const commentSchema = new Schema({
+    body : {type : String, required: true},
+    author : {type: String, required: true}
+})
+
+
 const tweetSchema = new mongoose.Schema({
     title : {
         type : String,
@@ -26,7 +32,8 @@ const tweetSchema = new mongoose.Schema({
     sponsored: {
         type: Boolean,
         default: false
-    }
+    },
+    comments : [commentSchema]
 }, {timestamps: true})
 
 
