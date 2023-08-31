@@ -32,7 +32,7 @@ app.get('/tweets', async (req, res)=> {
 })
 
 
-//show
+// show
 app.get('/tweets/:id', async (req, res) => {
     const {id} = req.params
     try {
@@ -58,7 +58,15 @@ app.post('/tweets', async (req, res) => {
 })    
 
 
-
+app.delete('/tweets/:id', async (req, res) => {
+    const {id} = req.params
+    try {
+        await Tweet.findByIdAndRemove(id)
+        res.send('Tweet deleted')
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 
 
