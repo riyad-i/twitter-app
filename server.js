@@ -32,19 +32,6 @@ app.get('/tweets', async (req, res)=> {
 })
 
 
-
-
-//create post
-app.post('/tweets', async (req, res) => {
-    const createdTweet = await Tweet.create(req.body)
-    console.log(createdTweet);
-    res.send(createdTweet)
-})
-
-
-
-
-
 //show
 app.get('/tweets/:id', async (req, res) => {
     const {id} = req.params
@@ -60,7 +47,23 @@ app.get('/tweets/:id', async (req, res) => {
 
 
 
-app.get('/tweets/seed', async (req, res) => {
+// =========================== API Routes
+
+
+//create post
+app.post('/tweets', async (req, res) => {
+    const createdTweet = await Tweet.create(req.body)
+    console.log(createdTweet);
+    res.send(createdTweet)
+})    
+
+
+
+
+
+
+
+app.get('/api/tweets/seed', async (req, res) => {
     const createdTweets = await Tweet.insertMany(manyTweets)
     res.send(createdTweets)
 })
