@@ -1,3 +1,5 @@
+require('dotenv').config()
+const connectDB = require('./utils/connectDB')
 
 const express = require('express')
 
@@ -13,7 +15,7 @@ app.get('/', (req, res) => {
 
 
 
-
+connectDB()
 
 
 app.listen(PORT, () => console.log(`Server running on port : ${PORT}`))
