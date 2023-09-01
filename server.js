@@ -79,7 +79,7 @@ app.put('/tweets/add-comment/:id', async (req, res) => {
     try {
         const tweetToAddComment = await Tweet.findById(id)
         tweetToAddComment.comments.push(req.body)
-        const updatedTweet = await Tweet.findByIdAndUpdate(id, tweetToAddComment, {new: true})
+        const updatedTweet = await Tweet.findByIdAndUpdate(id, tweetToAddComment, {new: true, runValidators: true})
         res.send(updatedTweet)
     } catch (error) {
         console.log(error);
