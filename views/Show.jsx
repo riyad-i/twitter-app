@@ -12,7 +12,7 @@ function Show({tweet}){
             <div>{new Date(tweet.createdAt).toLocaleDateString()}</div>
             <div>{tweet.sponsored ? 'sponsored' : null}</div>
             <div>
-                {tweet.comments.length && (
+                {tweet.comments.length ? (
                     tweet.comments.map(comment => {
                         return(
                             <div>
@@ -21,7 +21,7 @@ function Show({tweet}){
                             </div>
                         )
                     })
-                )}
+                ): null}
 
             </div>
 
