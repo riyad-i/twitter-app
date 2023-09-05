@@ -16,10 +16,10 @@ function Show({tweet}){
 
             <div>
                 <h3>Comment Form</h3>
-                <form>
-                    comment body: <input type='text' name='body' required/>
+                <form method='POST' action={`/api/tweets/add-comment/${tweet._id}?_method=PUT`}>
+                    Body: <input type='text' name='body' required/>
                     <br/>
-                    comment author: <input type='text' name='author' required/>
+                    Author: <input type='text' name='author' required/>
                     <br/>
                     <button>Add Comment</button>
                 </form>

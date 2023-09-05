@@ -124,7 +124,8 @@ app.put('/api/tweets/add-comment/:id', async (req, res) => {
         const tweetToAddComment = await Tweet.findById(id)
         tweetToAddComment.comments.push(req.body)
         const updatedTweet = await Tweet.findByIdAndUpdate(id, tweetToAddComment, {new: true, runValidators: true})
-        res.send(updatedTweet)
+        // res.send(updatedTweet)
+        res.redirect('/tweets')
     } catch (error) {
         console.log(error);
     }
@@ -143,7 +144,7 @@ app.get('/api/tweets/add-like/:id', async (req, res) => {
         tweetToUpdate.likes++
         const updatedTweet = await Tweet.findByIdAndUpdate(id, tweetToUpdate, {new: true})
         // res.send(updatedTweet)
-        res.redirect('/tweets')
+        res.redirect(`/tweets/${id}`)
     } catch (error) {
         console.log(error);
     }
