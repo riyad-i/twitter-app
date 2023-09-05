@@ -51,7 +51,7 @@ app.get('/tweets/:id', async (req, res) => {
 
 
 //create post
-app.post('/tweets', async (req, res) => {
+app.post('/api/tweets', async (req, res) => {
     const createdTweet = await Tweet.create(req.body)
     console.log(createdTweet);
     res.send(createdTweet)
@@ -59,7 +59,7 @@ app.post('/tweets', async (req, res) => {
 
 
 //update
-app.put('/tweets/:id', async (req, res) => {
+app.put('/api/tweets/:id', async (req, res) => {
     const {id} = req.params
     try {
         // const tweetToUpdate = await Tweet.findById(id)
@@ -74,7 +74,7 @@ app.put('/tweets/:id', async (req, res) => {
 
 //add comment
 
-app.put('/tweets/add-comment/:id', async (req, res) => {
+app.put('/api/tweets/add-comment/:id', async (req, res) => {
     const {id} = req.params
     try {
         const tweetToAddComment = await Tweet.findById(id)
@@ -109,7 +109,7 @@ app.get('/api/tweets/add-like/:id', async (req, res) => {
 
 
 //delete
-app.delete('/tweets/:id', async (req, res) => {
+app.delete('/api/tweets/:id', async (req, res) => {
     const {id} = req.params
     try {
         await Tweet.findByIdAndRemove(id)
