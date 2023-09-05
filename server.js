@@ -58,7 +58,8 @@ app.get('/tweets/:id', async (req, res) => {
     const {id} = req.params
     try {
         const tweet = await Tweet.findById(id)
-        res.send(tweet)
+        // res.send(tweet)
+        res.render('Show', {tweet})
     } catch (error) {
         console.log(error);
     }
@@ -71,9 +72,9 @@ app.get('/tweets/:id', async (req, res) => {
 
 //create post
 app.post('/api/tweets', async (req, res) => {
-    const createdTweet = await Tweet.create(req.body)
-    console.log(createdTweet);
-    res.send(createdTweet)
+    // const createdTweet = await Tweet.create(req.body)
+    // console.log(createdTweet);
+    res.redirect('/tweets')
 })    
 
 
