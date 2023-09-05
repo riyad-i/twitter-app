@@ -107,7 +107,8 @@ app.put('/api/tweets/:id', async (req, res) => {
     try {
         // const tweetToUpdate = await Tweet.findById(id)
         const updatedTweet = await Tweet.findByIdAndUpdate(id, req.body, {new: true})
-        res.send(updatedTweet)
+        // res.send(updatedTweet)
+        res.redirect(`/tweets/${id}`)
     } catch (error) {
         console.log(error);
     }
