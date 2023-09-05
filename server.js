@@ -74,8 +74,8 @@ app.get('/tweets/:id', async (req, res) => {
 
 //create post
 app.post('/api/tweets', async (req, res) => {
-    // const createdTweet = await Tweet.create(req.body)
-    // console.log(createdTweet);
+    const createdTweet = await Tweet.create(req.body)
+    console.log(createdTweet);
     res.redirect('/tweets')
 })    
 
@@ -135,7 +135,8 @@ app.delete('/api/tweets/:id', async (req, res) => {
     const {id} = req.params
     try {
         await Tweet.findByIdAndRemove(id)
-        res.send('Tweet deleted')
+        // res.send('Tweet deleted')
+        res.redirect('/tweets')
     } catch (error) {
         console.log(error);
     }
