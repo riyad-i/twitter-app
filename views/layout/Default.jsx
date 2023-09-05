@@ -1,3 +1,5 @@
+const React = require('react')
+
 
 function DefaultLayout({title, children}){
     return(
