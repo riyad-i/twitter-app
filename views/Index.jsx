@@ -14,7 +14,7 @@ function Index({tweets}){
                     tweets.map(tweet => {
                         return(
                             <li key={tweet._id} className='border p-5'>
-                                <a href={`tweets/${tweet._id}`}>{tweet.title}</a>
+                                <a href={`/tweets/${tweet._id}`}>{tweet.title}</a>
                                 <p>{tweet.body}</p>
                                 <p>{tweet.author}</p>
                                 <span>Likes : {tweet.likes}</span>
