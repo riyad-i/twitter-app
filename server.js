@@ -60,7 +60,7 @@ app.get('/tweets/:id/edit', async (req, res) => {
     const {id} = req.params
     try {
         //find tweet
-        let tweetToEdit = Tweet.findById(id)
+        let tweetToEdit = await Tweet.findById(id)
         //return edit template with tweet data
         res.render('Edit', {tweetToEdit})
     } catch (error) {
