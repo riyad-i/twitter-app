@@ -125,7 +125,7 @@ app.put('/api/tweets/add-comment/:id', async (req, res) => {
         tweetToAddComment.comments.push(req.body)
         const updatedTweet = await Tweet.findByIdAndUpdate(id, tweetToAddComment, {new: true, runValidators: true})
         // res.send(updatedTweet)
-        res.redirect('/tweets')
+        res.redirect(`/tweets/${id}`)
     } catch (error) {
         console.log(error);
     }

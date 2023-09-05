@@ -11,11 +11,14 @@ function Show({tweet}){
             <div>{tweet.body}</div>
             <div>{new Date(tweet.createdAt).toLocaleDateString()}</div>
             <div>{tweet.sponsored ? 'sponsored' : null}</div>
+
             <div>
                 {tweet.comments.length ? (
                     tweet.comments.map(comment => {
                         return(
+                            
                             <div>
+                                <br/>
                                 <div>{comment.body}</div>
                                 <div>{comment.author}</div>
                             </div>
