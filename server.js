@@ -10,6 +10,12 @@ const PORT = 3000
 
 const manyTweets = require('./models/manytweets')
 
+const jsxEngine = require('jsx-view-engine')
+
+// app config
+app.set('view engine', 'jsx')
+app.engine('jsx', jsxEngine())
+
 //middleware
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
@@ -25,7 +31,8 @@ app.get('/', (req, res) => {
 app.get('/tweets', async (req, res)=> {
     try {
         const tweets = await Tweet.find({})
-        res.send(tweets)
+        // res.send(tweets)
+        res.render('Index', {tweets})
     } catch (error) {
         console.log(error);
     }
