@@ -39,6 +39,20 @@ app.get('/tweets', async (req, res)=> {
 })
 
 
+
+/**
+ * New form
+ */
+app.get('/tweets/new', (req, res)=> {
+    try {
+        res.render('New')
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+
+
 // show
 app.get('/tweets/:id', async (req, res) => {
     const {id} = req.params
@@ -49,8 +63,6 @@ app.get('/tweets/:id', async (req, res) => {
         console.log(error);
     }
 })
-
-
 
 
 
