@@ -53,6 +53,22 @@ app.get('/tweets/new', (req, res)=> {
     }
 })
 
+/**
+ * Edit form
+ */
+app.get('/tweets/:id/edit', async (req, res) => {
+    const {id} = req.params
+    try {
+        //find tweet
+        let tweetToEdit = Tweet.findById(id)
+        //return edit template with tweet data
+        res.render('Edit', {tweetToEdit})
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+
 
 
 // show
