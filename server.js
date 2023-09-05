@@ -12,6 +12,8 @@ const manyTweets = require('./models/manytweets')
 
 const jsxEngine = require('jsx-view-engine')
 
+const methodOverride = require('method-override')
+
 // app config
 app.set('view engine', 'jsx')
 app.engine('jsx', jsxEngine())
@@ -19,7 +21,7 @@ app.engine('jsx', jsxEngine())
 //middleware
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
-
+app.use(methodOverride('_method'))
 
 app.get('/', (req, res) => {
     res.send('Working!')

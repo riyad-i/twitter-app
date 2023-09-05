@@ -19,6 +19,10 @@ function Index({tweets}){
                                 <p>{tweet.author}</p>
                                 <span>Likes : {tweet.likes}</span>
                                 <span>{tweet.sponsored ? 'Sponsored': ''}</span>
+
+                                <form method='post' action={`/api/tweets/${tweet._id}?_method=DELETE`}>
+                                    <button>Delete</button>
+                                </form>
                             </li>
                         )
                     })
