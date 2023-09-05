@@ -99,6 +99,11 @@ app.post('/api/tweets', async (req, res) => {
 //update
 app.put('/api/tweets/:id', async (req, res) => {
     const {id} = req.params
+    if (req.body.sponsored==='on'){
+        req.body.sponsored = true
+    }else{
+        req.body.sponsored = false
+    }
     try {
         // const tweetToUpdate = await Tweet.findById(id)
         const updatedTweet = await Tweet.findByIdAndUpdate(id, req.body, {new: true})
