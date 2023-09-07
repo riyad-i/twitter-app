@@ -145,7 +145,7 @@ app.get('/api/tweets/add-like/:id', async (req, res) => {
         tweetToUpdate.likes++
         const updatedTweet = await Tweet.findByIdAndUpdate(id, tweetToUpdate, {new: true})
         // res.send(updatedTweet)
-        res.redirect(`/tweets/${id}`)
+        res.redirect(`/tweets`)
     } catch (error) {
         console.log(error);
     }
