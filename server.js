@@ -22,6 +22,7 @@ app.engine('jsx', jsxEngine())
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
 app.use(methodOverride('_method'))
+app.use(express.static('public'))
 
 app.get('/', (req, res) => {
     res.send('Working!')

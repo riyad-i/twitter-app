@@ -6,6 +6,7 @@ function DefaultLayout({title, children}){
         <html>
             <head>
                 <title>{title}</title>
+                {/* <link rel='stylesheet' href='/css/app.css'/> */}
                 <script src="https://cdn.tailwindcss.com"></script>
             </head>
 
