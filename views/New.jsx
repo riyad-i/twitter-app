@@ -1,9 +1,10 @@
 const React = require('react')
+const DefaultLayout = require('./layout/Default')
 
 
 function New(){
     return(
-        <div>
+        <DefaultLayout title='New'>
             <h2>Create a new Tweet</h2>
             <form action='/api/tweets' method='post'>
                 Title: <input name='title' type='text' required/>
@@ -11,7 +12,7 @@ function New(){
                 <textarea name='body' required></textarea>
                 <button>Create Tweet</button>
             </form>
-        </div>
+        </DefaultLayout>
     )
 }
 
